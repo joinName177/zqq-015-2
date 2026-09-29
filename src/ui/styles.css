@@ -465,3 +465,285 @@ body {
   font-weight: 800;
   color: var(--bronze);
 }
+
+/* ============================================================
+   成语故事卡 · 纵向分享版（宣纸浅墨，屏幕与打印同构）
+   ============================================================ */
+
+.story-card-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.story-card-toolbar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-sc {
+  background: var(--ink-card);
+  border: 1px solid var(--bronze);
+  color: var(--bronze);
+  padding: 9px 20px;
+  border-radius: 6px;
+  font-family: var(--font-serif);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-sc:hover {
+  background: rgba(212, 175, 55, 0.15);
+}
+
+.btn-sc.copy-ok {
+  border-color: var(--jade);
+  color: var(--jade);
+}
+
+.story-card {
+  width: 420px;
+  max-width: 100%;
+  background:
+    radial-gradient(rgba(120, 90, 40, 0.06) 1px, transparent 1px) 0 0 / 18px 18px,
+    linear-gradient(180deg, #faf4e7 0%, #f3ead8 100%);
+  color: #2c261f;
+  border: 1px solid #c9b487;
+  border-radius: 14px;
+  padding: 26px 24px 18px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sc-topline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #d9c8a0;
+  padding-bottom: 10px;
+}
+
+.sc-seal {
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
+  background: #b3352a;
+  color: #fff;
+  font-family: var(--font-calligraphy);
+  font-size: 15px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sc-brand {
+  flex: 1;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #8a7d68;
+}
+
+.sc-polarity {
+  font-size: 11px;
+  font-weight: 700;
+  color: #b3352a;
+  border: 1px solid #b3352a;
+  border-radius: 10px;
+  padding: 1px 10px;
+}
+
+.sc-hero {
+  text-align: center;
+  padding: 4px 0 2px;
+}
+
+.sc-idiom {
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: 10px;
+  text-indent: 10px;
+  color: #201b14;
+  line-height: 1.2;
+}
+
+.sc-pinyin {
+  margin-top: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #8a6d2e;
+  letter-spacing: 1px;
+}
+
+.sc-block {
+  border-top: 1px dashed #d9c8a0;
+  padding-top: 10px;
+}
+
+.sc-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #8a6d2e;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+
+.sc-definition {
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+
+.sc-syntax {
+  margin-top: 5px;
+  font-size: 11.5px;
+  color: #8a7d68;
+}
+
+.sc-source-meta {
+  font-size: 12px;
+  font-weight: 700;
+  color: #5c4a26;
+  margin-bottom: 5px;
+}
+
+.sc-story {
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: #3d362b;
+}
+
+.sc-quote {
+  margin-top: 7px;
+  background: rgba(179, 53, 42, 0.07);
+  border-left: 3px solid #b3352a;
+  padding: 7px 10px;
+  font-size: 12px;
+  line-height: 1.6;
+  font-style: italic;
+  color: #4a3f30;
+  border-radius: 0 4px 4px 0;
+}
+
+.sc-dna-body {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sc-donut-wrap {
+  width: 96px;
+  height: 96px;
+  flex: 0 0 96px;
+}
+
+.sc-donut {
+  width: 96px;
+  height: 96px;
+}
+
+.sc-dna-legend {
+  list-style: none;
+  font-size: 12.5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+
+.sc-dna-legend b {
+  float: right;
+}
+
+.sc-dna-legend .dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  margin-right: 7px;
+}
+
+.dot-orig { background: #3f7d5b; }
+.dot-ext { background: #b08a2e; }
+.dot-meta { background: #b3352a; }
+
+.sc-bar {
+  display: flex;
+  height: 7px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #e8dcc6;
+  margin: 10px 0 9px;
+}
+
+.bar-orig { background: #3f7d5b; height: 100%; }
+.bar-ext { background: #b08a2e; height: 100%; }
+.bar-meta { background: #b3352a; height: 100%; }
+
+.sc-sememes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.sc-sememe {
+  font-size: 11px;
+  color: #8a6d2e;
+  background: rgba(176, 138, 46, 0.12);
+  border: 1px solid rgba(176, 138, 46, 0.4);
+  border-radius: 3px;
+  padding: 2px 8px;
+}
+
+.sc-footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #d9c8a0;
+  padding-top: 9px;
+  font-size: 10.5px;
+  color: #a3916e;
+  letter-spacing: 0.5px;
+}
+
+/* ---------- 打印：仅输出纵向故事卡，A4 纵向居中 ---------- */
+
+#story-card-print {
+  display: none;
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .idiom-app {
+    display: none !important;
+  }
+
+  #story-card-print {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+  }
+
+  #story-card-print .story-card {
+    width: 360pt;
+    max-width: 100%;
+    box-shadow: none;
+    border-radius: 10pt;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 14mm;
+  }
+}

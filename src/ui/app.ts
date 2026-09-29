@@ -1,4 +1,5 @@
 import { IdiomProfile, KinshipResult } from '../core/models';
+import { renderStoryCardSection, bindStoryCard } from './story-card';
 
 export interface IdiomUIHandlers {
   onSearch: (idiomText: string) => void;
@@ -196,6 +197,9 @@ export function renderIdiomApp(
             </div>
           </aside>
         </div>
+
+        <!-- Shareable Vertical Story Card -->
+        ${renderStoryCardSection(currentProfile)}
       `
           : `
         <!-- Compare Mode -->
@@ -291,6 +295,8 @@ export function renderIdiomApp(
         if (idiom) handlers.onSearch(idiom);
       });
     });
+
+    bindStoryCard(container, currentProfile);
   } else {
     container.querySelector('#btnRunCompare')?.addEventListener('click', () => {
       const a = (container.querySelector('#compareInputA') as HTMLInputElement).value.trim();
