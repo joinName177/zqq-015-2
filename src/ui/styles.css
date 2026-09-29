@@ -465,3 +465,441 @@ body {
   font-weight: 800;
   color: var(--bronze);
 }
+
+/* ============================================
+   生成分享故事卡按钮
+   ============================================ */
+.btn-story-card {
+  margin-top: 14px;
+  background: linear-gradient(135deg, var(--vermilion), #a52a1e);
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(201, 59, 43, 0.35);
+}
+
+.btn-story-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(201, 59, 43, 0.5);
+}
+
+/* ============================================
+   故事卡弹窗
+   ============================================ */
+.sc-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.sc-modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 100%;
+}
+
+.sc-modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.sc-action-btn {
+  background: var(--ink-card);
+  border: 1px solid var(--ink-border);
+  color: var(--silk);
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-family: var(--font-serif);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sc-action-btn:hover {
+  border-color: var(--bronze);
+  color: var(--bronze);
+}
+
+.sc-btn-print {
+  background: linear-gradient(135deg, var(--bronze), #b38b4d);
+  color: #141210;
+  border: none;
+  font-weight: 700;
+}
+
+.sc-btn-print:hover {
+  color: #141210;
+  filter: brightness(1.1);
+}
+
+.sc-btn-copy.copied {
+  background: var(--jade);
+  border-color: var(--jade);
+  color: #fff;
+}
+
+.sc-btn-close {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.sc-modal-body {
+  display: flex;
+  justify-content: center;
+}
+
+/* ============================================
+   故事卡本体（竖版 · 浅纸底 · 可打印）
+   ============================================ */
+.story-card {
+  width: 380px;
+  max-width: 100%;
+  background: linear-gradient(180deg, #f8f2e4 0%, #f1e8d3 100%);
+  color: #2a2520;
+  border: 1px solid #c9a86a;
+  border-radius: 14px;
+  padding: 28px 26px 22px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(212, 175, 55, 0.2);
+  position: relative;
+  font-family: var(--font-serif);
+}
+
+.story-card::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(201, 168, 106, 0.45);
+  border-radius: 10px;
+  pointer-events: none;
+}
+
+/* 页眉 */
+.sc-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #c9a86a;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.sc-seal {
+  width: 44px;
+  height: 44px;
+  background: var(--vermilion);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-calligraphy);
+  font-size: 24px;
+  border-radius: 6px;
+  box-shadow: 0 3px 8px rgba(201, 59, 43, 0.35);
+  flex-shrink: 0;
+}
+
+.sc-brand-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #5a4a2a;
+  letter-spacing: 2px;
+}
+
+.sc-brand-sub {
+  font-size: 10px;
+  color: #9c8a6a;
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+
+/* 成语标题区 */
+.sc-title-section {
+  text-align: center;
+  margin-bottom: 22px;
+  position: relative;
+}
+
+.sc-idiom {
+  font-family: var(--font-calligraphy);
+  font-size: 46px;
+  font-weight: 400;
+  color: #2a2520;
+  letter-spacing: 10px;
+  margin: 0 0 6px 0;
+  line-height: 1.2;
+}
+
+.sc-pinyin {
+  font-size: 13px;
+  color: #8a6d3b;
+  letter-spacing: 2px;
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 10px;
+}
+
+.sc-polarity-badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--vermilion);
+  color: var(--vermilion);
+  background: rgba(201, 59, 43, 0.08);
+}
+
+.sc-polarity-badge.褒义 {
+  border-color: var(--jade);
+  color: var(--jade);
+  background: rgba(64, 145, 108, 0.08);
+}
+
+.sc-polarity-badge.中性 {
+  border-color: #b8860b;
+  color: #b8860b;
+  background: rgba(184, 134, 11, 0.08);
+}
+
+/* 卡片小节 */
+.sc-section {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.sc-section-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #8a6d3b;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed rgba(201, 168, 106, 0.6);
+}
+
+.sc-section-icon {
+  font-size: 15px;
+}
+
+/* 出处 */
+.sc-source-book {
+  font-size: 16px;
+  font-weight: 700;
+  color: #5a4a2a;
+  margin-bottom: 2px;
+}
+
+.sc-source-meta {
+  font-size: 11px;
+  color: #9c8a6a;
+  margin-bottom: 8px;
+}
+
+.sc-event {
+  font-size: 12.5px;
+  color: #4a4035;
+  line-height: 1.7;
+  margin-bottom: 8px;
+  text-align: justify;
+}
+
+.sc-quote {
+  background: rgba(201, 59, 43, 0.06);
+  border-left: 3px solid var(--vermilion);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #6a3a2a;
+  line-height: 1.6;
+  font-style: italic;
+  margin: 0;
+}
+
+/* 现代用法 */
+.sc-definition {
+  font-size: 13px;
+  color: #3a3025;
+  line-height: 1.7;
+  margin-bottom: 8px;
+  text-align: justify;
+}
+
+.sc-syntactic {
+  font-size: 11.5px;
+  color: #8a6d3b;
+  background: rgba(212, 175, 55, 0.1);
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+/* 语义 DNA */
+.sc-dna-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.sc-dna-chart {
+  flex-shrink: 0;
+}
+
+.sc-dna-svg {
+  display: block;
+}
+
+.sc-dna-legend {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sc-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #4a4035;
+}
+
+.sc-legend-item strong {
+  margin-left: auto;
+  font-size: 13px;
+}
+
+.sc-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.sc-sememes {
+  border-top: 1px solid rgba(201, 168, 106, 0.4);
+  padding-top: 10px;
+}
+
+.sc-sememes-label {
+  font-size: 11px;
+  color: #9c8a6a;
+  margin-bottom: 6px;
+}
+
+.sc-sememes-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.sc-sememe-tag {
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(184, 134, 11, 0.4);
+  color: #8a6d3b;
+  padding: 3px 9px;
+  border-radius: 4px;
+  font-size: 11.5px;
+}
+
+/* 页脚 */
+.sc-footer {
+  text-align: center;
+  padding-top: 14px;
+  border-top: 2px solid #c9a86a;
+  margin-top: 4px;
+}
+
+.sc-footer-brand {
+  font-size: 12px;
+  font-weight: 700;
+  color: #5a4a2a;
+  letter-spacing: 1px;
+}
+
+.sc-footer-sub {
+  font-size: 10px;
+  color: #9c8a6a;
+  margin-top: 3px;
+}
+
+/* ============================================
+   打印样式：仅打印故事卡
+   ============================================ */
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+
+  .sc-modal-overlay,
+  .sc-modal,
+  .sc-modal-body,
+  .story-card,
+  .story-card * {
+    visibility: visible !important;
+  }
+
+  .sc-modal-overlay {
+    position: absolute !important;
+    inset: 0 !important;
+    background: #fff !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+
+  .sc-modal-actions {
+    display: none !important;
+  }
+
+  .sc-modal {
+    display: block !important;
+    max-width: 100% !important;
+  }
+
+  .sc-modal-body {
+    display: block !important;
+  }
+
+  .story-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 auto !important;
+    padding: 20px !important;
+    page-break-inside: avoid;
+  }
+
+  .story-card::before {
+    display: none !important;
+  }
+
+  .sc-seal {
+    box-shadow: none !important;
+  }
+}

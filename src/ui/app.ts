@@ -1,4 +1,5 @@
 import { IdiomProfile, KinshipResult } from '../core/models';
+import { openStoryCardModal } from './story-card';
 
 export interface IdiomUIHandlers {
   onSearch: (idiomText: string) => void;
@@ -89,6 +90,7 @@ export function renderIdiomApp(
             <h2>${esc(currentProfile.idiom)}</h2>
             <div class="hero-pinyin">${esc(currentProfile.pinyin)} · ${esc(currentProfile.syntacticRole)}</div>
             <div class="hero-desc">${esc(currentProfile.modernDefinition)}</div>
+            <button class="btn-story-card" id="btnStoryCard">📇 生成分享故事卡</button>
           </div>
           <div>
             <span class="polarity-badge ${currentProfile.dna.polarity}">感情色彩 · ${currentProfile.dna.polarity}</span>
@@ -290,6 +292,11 @@ export function renderIdiomApp(
         const idiom = btn.getAttribute('data-idiom');
         if (idiom) handlers.onSearch(idiom);
       });
+    });
+
+    // 生成分享故事卡
+    container.querySelector('#btnStoryCard')?.addEventListener('click', () => {
+      openStoryCardModal(currentProfile);
     });
   } else {
     container.querySelector('#btnRunCompare')?.addEventListener('click', () => {
